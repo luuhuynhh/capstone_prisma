@@ -1,0 +1,12 @@
+POST http://localhost:8000/user
+Content-Type: application/json
+
+{
+    "user_id" : 1,
+    "password" : "123456",
+    "fullname" : "Xuân Ý",
+    "email" : "",
+    "age": 19,
+    "avatar" : "https://i.pinimg.com/564x/5e/21/b5/5e21b5fa45cc04f8fd35537496ebe6d0.jpg"
+}
+###
