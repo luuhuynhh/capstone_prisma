@@ -8,14 +8,16 @@ datasource db {
 }
 
 model comment {
+  comment_id   Int      @id @default(autoincrement())
   user_id      Int
   image_id     Int
+  content      String   @db.VarChar(512)
   comment_date DateTime @db.DateTime(0)
   user         user     @relation(fields: [user_id], references: [user_id], onDelete: NoAction, onUpdate: NoAction, map: "comment_user_fk_1")
   image        image    @relation(fields: [image_id], references: [image_id], onDelete: NoAction, onUpdate: NoAction, map: "image_image_fk_1")
 
-  @@id([user_id, image_id])
   @@index([image_id], map: "image_image_fk_1")
+  @@index([user_id], map: "comment_user_fk_1")
 }
 
 model image {
@@ -32,14 +34,15 @@ model image {
 }
 
 model save_image {
+  save_id   Int      @id @default(autoincrement())
   user_id   Int
   image_id  Int
   save_date DateTime @db.DateTime(0)
   image     image    @relation(fields: [image_id], references: [image_id], onDelete: NoAction, onUpdate: NoAction, map: "save_image_fk_1")
   user      user     @relation(fields: [user_id], references: [user_id], onDelete: NoAction, onUpdate: NoAction, map: "save_user_fk_1")
 
-  @@id([user_id, image_id])
   @@index([image_id], map: "save_image_fk_1")
+  @@index([user_id], map: "save_user_fk_1")
 }
 
 model user {

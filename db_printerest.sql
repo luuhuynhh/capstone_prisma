@@ -21,19 +21,20 @@ create table `image` (
 );
 
 create table `comment` (
+	`comment_id` int not null auto_increment PRIMARY KEY,
 	`user_id` int NOT NULL,
     `image_id` int NOT NULL,
+    `content` varchar(512) NOT NULL,
     `comment_date` datetime NOT NULL,
-    PRIMARY KEY (`user_id`, `image_id`),
 	CONSTRAINT `comment_user_fk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`),
 	CONSTRAINT `image_image_fk_1` FOREIGN KEY (`image_id`) REFERENCES `image` (`image_id`)
 );
 
 create table `save_image` (
+	`save_id` int not null auto_increment PRIMARY KEY,
 	`user_id` int NOT NULL,
     `image_id` int NOT NULL,
     `save_date` datetime NOT NULL,
-    PRIMARY KEY (`user_id`, `image_id`),
 	CONSTRAINT `save_user_fk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`),
 	CONSTRAINT `save_image_fk_1` FOREIGN KEY (`image_id`) REFERENCES `image` (`image_id`)
 );
