@@ -91,7 +91,41 @@ const getImageList = async (req, res, next) => {
     }
 }
 
+const getImageDetail = async (req, res, next) => {
+    try {
+        const { image_id } = req.params;
+
+        if (!image_id) {
+            return badRequestCode(res, "Hãy thêm thông tin id hình ảnh")
+        }
+
+        if (Number.isNaN(+image_id)) {
+            return badRequestCode(res, "Id hình ảnh không hợp lệ")
+        }
+
+        const image = await prisma.image.findFirst({
+            where: {
+                image_id: +image_id
+            },
+            include: {
+                user: true
+            }
+        })
+
+        if (!image) {
+            return notFoundCode(res, "Không tìm thấy hình ảnh nào")
+        }
+
+        return successCode(res, { image }, "Lấy chi tiết hình ảnh thành công")
+
+    } catch (err) {
+        console.log(err);
+        return serverErrorCode(res, "Lỗi server");
+    }
+}
+
 module.exports = {
     postImage,
-    getImageList
+    getImageList,
+    getImageDetail
 }
