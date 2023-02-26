@@ -1,6 +1,6 @@
 const { PrismaClient } = require('@prisma/client');
 const fs = require('fs');
-const { serverErrorCode, successCode, badRequestCode, unauthorizedCode } = require('../config/response');
+const { serverErrorCode, successCode, badRequestCode, unauthorizedCode, notFoundCode } = require('../config/response');
 
 const prisma = new PrismaClient();
 
@@ -37,10 +37,61 @@ const postImage = async (req, res, next) => {
 
     } catch (err) {
         console.log(err);
-        serverErrorCode(res, "Lỗi server");
+        return serverErrorCode(res, "Lỗi server");
+    }
+}
+
+const getImageList = async (req, res, next) => {
+    try {
+        let { name, limit, offset } = req.query;
+
+        //validate input
+        let isValidLimit = true;
+        let isValidOffset = true;
+
+        if (limit) {
+            limit = +limit;
+            isValidLimit = !Number.isNaN(limit);
+        }
+
+        if (offset) {
+            offset = +offset;
+            isValidOffset = !Number.isNaN(offset);
+        }
+
+        if (!isValidLimit || !isValidOffset) {
+            return badRequestCode(res, {
+                ...(!isValidLimit && { LIMIT: "Không hợp lệ" }),
+                ...(!isValidOffset && { OFFSET: "Không hợp lệ" }),
+            })
+        }
+
+        const images = await prisma.image.findMany({
+            where: {
+                ...(name && {
+                    name: {
+                        contains: name,
+                    }
+                }),
+            },
+            ...(offset && { skip: offset }),
+            ...(limit && { take: limit }),
+            orderBy: [{ image_id: 'desc' }]
+        })
+
+        if (!images || !images.length) {
+            return notFoundCode(res, "Không tìm thấy ảnh nào");
+        }
+
+        return successCode(res, { images }, "Lấy danh sách ảnh thành công");
+
+    } catch (err) {
+        console.log(err);
+        return serverErrorCode(res, "Lỗi server");
     }
 }
 
 module.exports = {
-    postImage
+    postImage,
+    getImageList
 }
