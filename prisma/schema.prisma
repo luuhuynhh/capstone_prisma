@@ -21,7 +21,7 @@ model comment {
 model image {
   image_id    Int          @id @default(autoincrement())
   name        String       @db.VarChar(255)
-  path        String       @db.VarChar(512)
+  path        String       @db.MediumText
   description String?      @db.VarChar(512)
   user_id     Int
   comment     comment[]

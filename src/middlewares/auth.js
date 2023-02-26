@@ -15,7 +15,6 @@ const getToken = (headers) => {
 const verifyToken = async (req, res, next) => {
     const token = getToken(req.headers);
 
-    console.log(token)
     if (!token) {
         return unauthorizedCode(res, "Vui lòng đăng nhập hệ thống");
     }
@@ -23,7 +22,6 @@ const verifyToken = async (req, res, next) => {
     try {
         const data = jwt.verify(token, API_SECRET);
 
-        console.log(data);
         const user = await prisma.user.findFirst({
             where: {
                 user_id: data.id

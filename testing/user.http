@@ -18,8 +18,6 @@ Content-Type: application/json
     "email" : "huynh@gmail.com"
 }
 
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjc3MzMwMDYzLCJleHAiOjE2Nzc0MTY0NjN9.fn9et6FwWxpq7cR9cbLVyKKhVuJczE3CvR9VZIgormg
-
 ###
 
 POST http://localhost:8000/user/logout
