@@ -2,11 +2,26 @@ POST http://localhost:8000/user
 Content-Type: application/json
 
 {
-    "user_id" : 1,
     "password" : "123456",
-    "fullname" : "Xuân Ý",
-    "email" : "",
-    "age": 19,
+    "fullname" : "Huỳnh Huỳnh",
+    "email" : "huynh@gmail.com",
+    "age": 22,
     "avatar" : "https://i.pinimg.com/564x/5e/21/b5/5e21b5fa45cc04f8fd35537496ebe6d0.jpg"
 }
 ###
+
+POST http://localhost:8000/user/signin
+Content-Type: application/json
+
+{
+    "password" : "123456",
+    "email" : "huynh@gmail.com"
+}
+
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjc3MzMwMDYzLCJleHAiOjE2Nzc0MTY0NjN9.fn9et6FwWxpq7cR9cbLVyKKhVuJczE3CvR9VZIgormg
+
+###
+
+POST http://localhost:8000/user/logout
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiaWF0IjoxNjc3MzMwMDYzLCJleHAiOjE2Nzc0MTY0NjN9.fn9et6FwWxpq7cR9cbLVyKKhVuJczE3CvR9VZIgormg
+Content-Type: application/json
