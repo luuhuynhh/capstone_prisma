@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static("."));
 
-app.use("/", rootRoute);
+app.use("/api", rootRoute);
 
 app.listen(port, () => {
     console.log("connected with", port);
