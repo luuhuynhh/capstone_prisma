@@ -3,8 +3,8 @@ Content-Type: application/json
 
 {
     "password" : "123456",
-    "fullname" : "Huỳnh Huỳnh",
-    "email" : "huynh@gmail.com",
+    "fullname" : "Xuân Ý",
+    "email" : "xuany@gmail.com",
     "age": 22,
     "avatar" : "https://i.pinimg.com/564x/5e/21/b5/5e21b5fa45cc04f8fd35537496ebe6d0.jpg"
 }
@@ -16,6 +16,16 @@ Content-Type: application/json
 {
     "password" : "123456",
     "email" : "huynh@gmail.com"
+}
+
+###
+
+POST http://localhost:8000/api/user/signin
+Content-Type: application/json
+
+{
+    "password" : "123456",
+    "email" : "xuany@gmail.com"
 }
 
 ###

@@ -1,4 +1,4 @@
-const { serverErrorCode, unauthorizedCode, badRequestCode, successCode, notFoundCode } = require("../config/response");
+const { serverErrorCode, unauthorizedCode, badRequestCode, successCode, notFoundCode, forbiddenCode } = require("../config/response");
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
@@ -126,7 +126,107 @@ const getCommentsByImageId = async (req, res, next) => {
     }
 }
 
+const updateComment = async (req, res, next) => {
+    try {
+        let { comment_id } = req.params;
+        const { content } = req.body;
+        const user = req.user;
+
+        if (!user) {
+            return unauthorizedCode(res, "Vui lòng đăng nhập vào hệ thống")
+        }
+
+        if (!comment_id) {
+            return badRequestCode(res, "Hãy thêm thông tin id bình luận")
+        }
+
+        if (Number.isNaN(+comment_id)) {
+            return badRequestCode(res, "Id bình luận không hợp lệ")
+        }
+
+        const commentDB = await prisma.comment.findFirst({
+            where: {
+                comment_id: +comment_id
+            }
+        })
+
+        if (!commentDB) {
+            return notFoundCode(res, "Không tìm thấy bình luận muốn chỉnh sửa")
+        }
+
+        if (user.user_id !== commentDB.user_id) {
+            return forbiddenCode(res, "Bạn không có quyền thực hiện tác vụ này")
+        }
+
+        if (!content) {
+            return badRequestCode(res, "Vui lòng nhập nội dung bình luận")
+        }
+
+        const commentUpdate = await prisma.comment.update({
+            where: {
+                comment_id: +comment_id
+            },
+            data: {
+                content
+            }
+        })
+
+        return successCode(res, { comment: commentUpdate }, "Cập nhật bình luận thành công")
+
+    } catch (err) {
+        console.log(err);
+        return serverErrorCode(res, "Lỗi server");
+    }
+}
+
+const deleteComment = async (req, res, next) => {
+    try {
+        let { comment_id } = req.params;
+        const user = req.user;
+
+        if (!user) {
+            return unauthorizedCode(res, "Vui lòng đăng nhập vào hệ thống")
+        }
+
+        if (!comment_id) {
+            return badRequestCode(res, "Hãy thêm thông tin id bình luận")
+        }
+
+        if (Number.isNaN(+comment_id)) {
+            return badRequestCode(res, "Id bình luận không hợp lệ")
+        }
+
+        const commentDB = await prisma.comment.findFirst({
+            where: {
+                comment_id: +comment_id
+            }
+        })
+
+        if (!commentDB) {
+            return notFoundCode(res, "Không tìm thấy bình luận muốn xóa")
+        }
+
+        if (user.user_id !== commentDB.user_id) {
+            return forbiddenCode(res, "Bạn không có quyền thực hiện tác vụ này")
+        }
+
+
+        const commentDelete = await prisma.comment.delete({
+            where: {
+                comment_id: +comment_id
+            }
+        })
+
+        return successCode(res, { comment: commentDelete }, "Xóa bình luận thành công")
+    } catch (err) {
+        console.log(err);
+        return serverErrorCode(res, "Lỗi server");
+    }
+}
+
 module.exports = {
     postComment,
-    getCommentsByImageId
+    getCommentsByImageId,
+    updateComment,
+    deleteComment
 }
