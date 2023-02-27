@@ -127,5 +127,5 @@ const getImageDetail = async (req, res, next) => {
 module.exports = {
     postImage,
     getImageList,
-    getImageDetail
+    getImageDetail,
 }
