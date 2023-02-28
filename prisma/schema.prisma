@@ -51,7 +51,7 @@ model user {
   password   String       @db.VarChar(255)
   fullname   String       @db.VarChar(255)
   age        Int?
-  avatar     String?      @db.VarChar(255)
+  avatar     String?      @db.MediumText
   comment    comment[]
   image      image[]
   save_image save_image[]

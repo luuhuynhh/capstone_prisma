@@ -8,7 +8,7 @@ create table `user` (
     `password` varchar(255) NOT NULL,
     `fullname` varchar(255) NOT NULL,
     `age` int,
-    `avatar` varchar(255)
+    `avatar` mediumtext
 );
 
 create table `image` (

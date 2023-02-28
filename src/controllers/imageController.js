@@ -7,7 +7,8 @@ const prisma = new PrismaClient();
 const postImage = async (req, res, next) => {
     try {
 
-        const { file, description, user } = req;
+        const { file, user } = req;
+        const { description } = req.body;
 
         if (!user) {
             return unauthorizedCode(res, "Vui lòng đăng nhập để thực hiện chức năng này");
