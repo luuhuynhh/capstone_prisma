@@ -43,7 +43,7 @@ const resgister = async (req, res, next) => {
             password: bcrypt.hashSync(password, 8),
             fullname,
             email,
-            age,
+            age: +age,
             // avatar
         }
 
