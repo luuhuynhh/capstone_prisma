@@ -1,0 +1,28 @@
+Lớp Node28 - Bài tập Capstone (Pinterest)
+Học viên: Huỳnh Nguyễn Thị Lựu
+
+Link video demo: https://youtu.be/Rv1lySu6CrM
+Nội dung demo:
+
+1. Auth
+	[POST] Đăng ký
+	[POST] Đăng nhập
+2. Trang chủ
+	[GET] Lấy danh sách ảnh (có hỗ trợ phân trang)
+	[GET] Tìm kiếm danh sách theo tên (có hỗ trợ phân trang)
+3. Trang chi tiết
+	[GET] Thông tin ảnh và người tạo ảnh bằng ID ảnh
+	[GET] Thông tin bình luận theo ID ảnh (có hỗ trợ phân trang)
+	[GET] Thông tin đã lưu hình ảnh này chưa theo ID ảnh
+	[POST] Lưu thông tin bình luận của người dùng với hình ảnh
+4. Trang quản lý ảnh
+	[GET] Lấy thông tin chi tiết người dùng
+	[GET] Lấy danh sách ảnh đã lưu theo UserID (có hỗ trợ phân trang)
+	[GET] Lấy danh sách ảnh đã tạo theo UserID (có hỗ trợ phân trang)
+	[DELETE] Xóa ảnh đã tạo theo ID ảnh
+5. Trang thêm ảnh
+	[POST] Thêm một ảnh mới
+6. Chỉnh sửa thông tin cá nhân
+	[PUT] Cập nhật thông tin cá nhân
+	
+*Note: Về thông tin lưu User được chia thành 2 API: (1) Khi đăng ký chỉ cần cung cấp các thông tin liên quan đến text, number... Tương tự các trang đăng ký như Facebook - Không bao gồm avatar lúc đăng ký. (2) API riêng cho việc upload avatar.

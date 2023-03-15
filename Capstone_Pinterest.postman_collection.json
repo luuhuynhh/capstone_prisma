@@ -1,0 +1,758 @@
+{
+	"info": {
+		"_postman_id": "7d219fe1-fbd0-4901-a0b8-9249ac73aa94",
+		"name": "Capstone_Printerest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21947952"
+	},
+	"item": [
+		{
+			"name": "Bình luận",
+			"item": [
+				{
+					"name": "[POST] Thêm bình luận",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiaWF0IjoxNjc4ODQ5NTI0LCJleHAiOjE2Nzg5MzU5MjR9.9gjmylfe7fKz5b1-aOuGFqZCpPmtJ0-mawRWdpYzpJA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "image_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "Demo comment =)))",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/comment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"comment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[GET] Lấy danh sách bình luận theo id hình ảnh",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiaWF0IjoxNjc4ODQ5NTI0LCJleHAiOjE2Nzg5MzU5MjR9.9gjmylfe7fKz5b1-aOuGFqZCpPmtJ0-mawRWdpYzpJA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/comment/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"comment",
+								"3"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[PUT] Chỉnh sửa bình luận",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiaWF0IjoxNjc3NTg2MzY4LCJleHAiOjE2Nzc2NzI3Njh9.ZaSjev6rMj4AG29o27h68eRAHn-8Hb9yW0t54Yho4ko",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "content",
+									"value": "cú cú",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/comment/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"comment",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[DEL] Xóa bình luận",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjc3NDg3NjQ3LCJleHAiOjE2Nzc1NzQwNDd9.Byh9kuS1LcqK_CklkkPp_Wmp13I-SWqB6DsTTdveRPg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/comment/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"comment",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Lưu hình ảnh",
+			"item": [
+				{
+					"name": "[POST] Lưu 1 hình ảnh",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiaWF0IjoxNjc4ODQ5NTI0LCJleHAiOjE2Nzg5MzU5MjR9.9gjmylfe7fKz5b1-aOuGFqZCpPmtJ0-mawRWdpYzpJA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "image_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/save-image",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"save-image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[POST] Gỡ lưu 1 hình ảnh",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiaWF0IjoxNjc3NTg2MzY4LCJleHAiOjE2Nzc2NzI3Njh9.ZaSjev6rMj4AG29o27h68eRAHn-8Hb9yW0t54Yho4ko",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "image_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/save-image/un-save",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"save-image",
+								"un-save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[GET] Kiểm tra đã lưu hình ảnh này chưa",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiaWF0IjoxNjc4ODQ5NTI0LCJleHAiOjE2Nzg5MzU5MjR9.9gjmylfe7fKz5b1-aOuGFqZCpPmtJ0-mawRWdpYzpJA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/save-image/check-if-saved?image_id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"save-image",
+								"check-if-saved"
+							],
+							"query": [
+								{
+									"key": "image_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Hình ảnh",
+			"item": [
+				{
+					"name": "[GET] Lấy ds hình ảnh đã lưu theo user_id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiaWF0IjoxNjc4ODQ5NTI0LCJleHAiOjE2Nzg5MzU5MjR9.9gjmylfe7fKz5b1-aOuGFqZCpPmtJ0-mawRWdpYzpJA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/image/image-saved?user_id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"image",
+								"image-saved"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[DEL] Xóa hình ảnh",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiaWF0IjoxNjc4ODQ5NTI0LCJleHAiOjE2Nzg5MzU5MjR9.9gjmylfe7fKz5b1-aOuGFqZCpPmtJ0-mawRWdpYzpJA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/image/8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"image",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[POST] Thêm 1 ảnh của user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiaWF0IjoxNjc4ODQ5NTI0LCJleHAiOjE2Nzg5MzU5MjR9.9gjmylfe7fKz5b1-aOuGFqZCpPmtJ0-mawRWdpYzpJA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/ASUS/Downloads/Untitled2.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/image",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[GET] Thông tin ảnh và người tạo ảnh bằng id ảnh",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiaWF0IjoxNjc4ODQ5NTI0LCJleHAiOjE2Nzg5MzU5MjR9.9gjmylfe7fKz5b1-aOuGFqZCpPmtJ0-mawRWdpYzpJA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/image/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"image",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[GET] Lấy hình ảnh đã tạo theo user_id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiaWF0IjoxNjc4ODQ5NTI0LCJleHAiOjE2Nzg5MzU5MjR9.9gjmylfe7fKz5b1-aOuGFqZCpPmtJ0-mawRWdpYzpJA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/image?user_id=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"image"
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[GET] Lấy danh sách ảnh về",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiaWF0IjoxNjc4ODQ5NTI0LCJleHAiOjE2Nzg5MzU5MjR9.9gjmylfe7fKz5b1-aOuGFqZCpPmtJ0-mawRWdpYzpJA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/image?offset=2&limit=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"image"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "2"
+								},
+								{
+									"key": "limit",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[GET] Tìm kiếm danh sách theo tên",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiaWF0IjoxNjc4ODQ5NTI0LCJleHAiOjE2Nzg5MzU5MjR9.9gjmylfe7fKz5b1-aOuGFqZCpPmtJ0-mawRWdpYzpJA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/image?name=v",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"image"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "v"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Người dùng",
+			"item": [
+				{
+					"name": "[PUT] Upload avatar",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiaWF0IjoxNjc4ODQ5NTI0LCJleHAiOjE2Nzg5MzU5MjR9.9gjmylfe7fKz5b1-aOuGFqZCpPmtJ0-mawRWdpYzpJA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/ASUS/Downloads/Cover Letter.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/user/upload-avatar",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user",
+								"upload-avatar"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[GET] Lấy thông tin chi tiết người dùng",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiaWF0IjoxNjc4ODQ5NTI0LCJleHAiOjE2Nzg5MzU5MjR9.9gjmylfe7fKz5b1-aOuGFqZCpPmtJ0-mawRWdpYzpJA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/user/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[PUT] Cập nhật thông tin người dùng",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NywiaWF0IjoxNjc4ODQ5NTI0LCJleHAiOjE2Nzg5MzU5MjR9.9gjmylfe7fKz5b1-aOuGFqZCpPmtJ0-mawRWdpYzpJA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "age",
+									"value": "18",
+									"type": "text"
+								},
+								{
+									"key": "",
+									"value": "",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/user/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[POST] Đăng ký",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								},
+								{
+									"key": "fullname",
+									"value": "Luu-Huynh",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "luuhuynh@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "age",
+									"value": "22",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "[POST] Đăng nhập",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "luuhuynh@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/user/signin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"user",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

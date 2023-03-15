@@ -13,7 +13,7 @@ rootRoute.use("/comment", auth, commentRoute)
 rootRoute.use("/save-image", auth, saveImageRoute)
 
 rootRoute.get("/", (req, res) => {
-    res.send("Testing")
+    res.send("Welcome")
 })
 
 module.exports = {
